@@ -1,0 +1,36 @@
+{
+  "name": "stonkmood",
+  "version": "0.1.0",
+  "description": "Ambient portfolio — 계좌를 쳐다보지 말고, 느껴라. Smart bulbs, RGB keyboards, and Claude Code statusline reflecting your stocks.",
+  "type": "module",
+  "bin": {
+    "stonkmood": "dist/cli.js"
+  },
+  "main": "dist/cli.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "demo": "tsx src/cli.ts demo",
+    "start": "tsx src/cli.ts start"
+  },
+  "keywords": [
+    "ambient",
+    "portfolio",
+    "stock",
+    "smart-bulb",
+    "openrgb",
+    "philips-hue",
+    "claude-code",
+    "tossinvest",
+    "korea"
+  ],
+  "license": "MIT",
+  "optionalDependencies": {
+    "openrgb-sdk": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}

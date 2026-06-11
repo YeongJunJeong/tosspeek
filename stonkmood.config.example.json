@@ -1,0 +1,18 @@
+{
+  "source": "mock",
+  "colorScheme": "kr",
+  "pollIntervalSec": 60,
+  "market": "krx",
+  "salary": {
+    "monthly": 4000000,
+    "hoursPerDay": 8,
+    "workdaysPerMonth": 22,
+    "workStart": "09:00"
+  },
+  "sinks": {
+    "terminal": { "enabled": true },
+    "hue": { "enabled": false, "bridgeIp": "", "apiKey": "", "lightIds": [1] },
+    "openrgb": { "enabled": false, "host": "127.0.0.1", "port": 6742 }
+  },
+  "toss": { "clientId": "", "clientSecret": "", "accountNo": "" }
+}
