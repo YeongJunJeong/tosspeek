@@ -1,5 +1,9 @@
 # TossPeek
 
+[![Latest Release](https://img.shields.io/github/v/release/YeongJunJeong/tosspeek?label=release&color=blue)](https://github.com/YeongJunJeong/tosspeek/releases/latest)
+[![Platform](https://img.shields.io/badge/platform-Windows-0078D6)](#download-and-install)
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey)](#license)
+
 > **계좌를 쳐다보지 말고, 느껴라.**
 
 내 주식을 차트 앱으로 계속 들여다보지 않아도, 작업표시줄에서 살짝 엿볼(peek) 수 있게 해주는 Windows용 상시 실행 도구입니다.
@@ -12,23 +16,30 @@
 - 트레이 아이콘 우클릭 메뉴에서 설정(계좌 연동, 자동 실행 등)을 관리할 수 있습니다.
 - 자리를 비웠거나 남에게 보이면 안 될 때를 위한 즉시 숨김 기능이 있습니다.
 
-## 준비물
+## Download and Install
+
+### 1. 다운로드
+
+**[⬇ 최신 릴리스 다운로드](https://github.com/YeongJunJeong/tosspeek/releases/latest)**
+
+위 링크로 들어가서 **Source code (zip)**을 받은 뒤 압축을 풀어주세요. 그동안 나온 모든 버전은 **[Releases 목록](https://github.com/YeongJunJeong/tosspeek/releases)**에서 볼 수 있습니다.
+
+### 2. 준비물
 
 - **Windows**
 - **[Node.js](https://nodejs.org)** (설치 후 컴퓨터 재시작을 권장합니다) — 없으면 설치부터 해주세요.
 
-## 시작하기
+### 3. 설치 & 실행
 
-1. **[⬇ ZIP 다운로드](https://github.com/YeongJunJeong/tosspeek/archive/refs/heads/main.zip)** — 누르면 바로 다운로드됩니다. 받은 zip 파일의 압축을 풀어주세요.
-2. 그 폴더에서 아래 세 줄을 순서대로 실행합니다 (Windows 터미널/PowerShell):
+압축을 푼 폴더에서 아래 세 줄을 순서대로 실행합니다 (Windows 터미널/PowerShell):
 
-   ```bash
-   npm install
-   npm run build
-   node dist/cli.js install-startup
-   ```
+```bash
+npm install
+npm run build
+node dist/cli.js install-startup
+```
 
-3. 실행하면 그 자리에서 바로 트레이 아이콘이 뜹니다. 재부팅할 필요 없습니다 — 이후 컴퓨터를 켤 때도 자동으로 조용히 실행됩니다.
+실행하면 그 자리에서 바로 트레이 아이콘이 뜹니다. 재부팅할 필요 없습니다 — 이후 컴퓨터를 켤 때도 자동으로 조용히 실행됩니다.
 
 트레이 아이콘이 안 보이면, 작업표시줄 시계 옆의 **숨겨진 아이콘(`^`) 화살표**를 눌러보세요 — Windows가 새 아이콘을 기본적으로 그 안에 넣어둡니다.
 
