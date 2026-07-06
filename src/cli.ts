@@ -67,6 +67,12 @@ function spawnDetachedViaStart(exe: string, args: string[]): void {
  * 중복 실행하지 않기 위한 가드 — 특히 데몬이 중복 실행되면 두 프로세스가 state.json을 같이 쓴다.
  * (`Start-Process -ArgumentList`로 띄운 실제 커맨드라인은 인자 사이에 따옴표를 안 붙이므로,
  * 부분 문자열을 여러 개 AND로 검사한다 — 따옴표 유무에 기대지 않는다.)
+ *
+ * `autostart`/`install-startup`/`uninstall-startup`으로 실행 중인 이 node 프로세스 자신의
+ * 커맨드라인에도 selfPath()와 "start"(각 명령어 이름에 substring으로 포함됨)가 그대로 들어있어
+ * 데몬 체크에 자기 자신이 걸리는 오탐이 났었다 — `$_.ProcessId -ne $PID`는 이 확인용
+ * powershell.exe 자신만 제외할 뿐, 그걸 띄운 node 프로세스는 제외하지 못했기 때문. 그래서
+ * process.pid도 명시적으로 제외한다.
  */
 function isProcessRunning(nameFilter: string, cmdlineSubstrings: string[]): boolean {
   if (process.platform !== "win32") return false;
@@ -75,6 +81,7 @@ function isProcessRunning(nameFilter: string, cmdlineSubstrings: string[]): bool
     // 인자 문자열 안에 그대로 박혀 있어서, 자기 자신도 필터에 걸려버리는(자기 매칭) 오탐이 난다.
     const clauses = [
       "$_.ProcessId -ne $PID",
+      `$_.ProcessId -ne ${process.pid}`,
       ...cmdlineSubstrings.map((s) => `$_.CommandLine -like '*${s.replace(/'/g, "''")}*'`),
     ].join(" -and ");
     const psCmd =
